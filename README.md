@@ -27,7 +27,6 @@ AWSの障害発生を自動検知し、
 | SMTP_PASS          | SMTPアプリパスワード              |
 | MAIL_TO            | メール送信先アドレス               |
 | SLACK_WEBHOOK_URL  | Slack Incoming Webhook URL（任意） |
-| LINE_NOTIFY_TOKEN  | LINE Notify トークン（任意）        |
 
 ※ SMTP_USERとMAIL_TOは同じでもOKです。
 
