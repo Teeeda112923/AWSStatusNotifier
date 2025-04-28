@@ -36,8 +36,8 @@ AWSの障害発生を自動検知し、メール・Slack・LINE に通知する�
 schedule:
   - cron: '0 * * * *'  # 毎時0分に実行（UTC）
 
-------------
-ローカルで使う場合
+
+### 3.ローカルで使う場合
 
 git clone https://github.com/yourname/aws-status-notifier.git
 cd aws-status-notifier
@@ -47,10 +47,9 @@ pip install -r requirements.txt
 cp .env.example .env  # 自分用の環境変数設定
 python aws_status_checker.py
 
------------
+### 4.通知文例
 
-通知メッセージの例
-✅ 正常稼働通知（障害が検出されなかった場合）
+#### ✅ 正常稼働通知（障害が検出されなかった場合）
 
 "件名: 【AWS稼働確認】異常は検出されませんでした（2025/04/22 13:00 時点）"
 
@@ -62,9 +61,8 @@ AWSステータスに新たな障害は報告されていません。
 
 ※ Slack／LINE でも同内容が通知されます。
 
------------
 
-🚨 障害検知時の通知メッセージ
+#### 🚨 障害検知時の通知メッセージ
 "件名: 【AWS障害検知】[RESOLVED] Connectivity Issues – US-WEST-2 Region"
 
 "本文:
@@ -75,9 +73,9 @@ Between 1:02 PM and 2:45 PM PDT, we experienced elevated error rates for EC2 and
 詳細: https://status.aws.amazon.com/"
 
 ※ Slack／LINE でも同内容が通知されます。
-------------
 
-.env の設定例（ローカル用）
+
+### .env の設定例（ローカル用）
 
 SMTP_USER=your_gmail@gmail.com
 SMTP_PASS=your_app_password
@@ -86,15 +84,15 @@ MAIL_TO=destination@example.com
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx/yyy/zzz
 LINE_NOTIFY_TOKEN=your_line_notify_token
 
------------
-必要パッケージ
+
+## 必要パッケージ
 
 feedparser
 pytz
 requests
 
----------
-LICENSE
+
+## LICENSE
 基本的には自由に利用可能です。個人・企業で利用ください。
 改変される場合は、以下問い合わせフォームから一報ください。
 （あくまでも連絡ほしいだけなので、改変および拡張は基本OKです。よろしければ当方運営サイトで紹介します。）
@@ -102,7 +100,7 @@ LICENSE
 URL：https://www.cybernote.click/contact/ 
 題名に「AWSStatusNotifier改変の件」と記載してください。
 
---------
+
 ## 貢献・拡張歓迎！
 - 正常通知を1日1回に間引く機能
 - Slack の Block Kit 対応
@@ -111,5 +109,5 @@ URL：https://www.cybernote.click/contact/
 - ブラウザプッシュ通知対応（Pushover など）
 
 Pull Request / Issue 大歓迎です！
------------
+
 
