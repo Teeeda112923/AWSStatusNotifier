@@ -30,9 +30,13 @@ AWSの障害発生を自動検知し、
 | LINE_NOTIFY_TOKEN  | LINE Notify トークン（任意）        |
 
 ※ SMTP_USERとMAIL_TOは同じでもOKです。
+
 ※ SMTP_USERとSMTP_PASSは同じアカウントで行ってください。
-　（おすすめはGmailです）
+
+ （おすすめはGmailです）
+
 ※ SMTP_PASSの生成はこちらから🔗(2段階認証の設定が必須です)
+
   https://myaccount.google.com/apppasswords
 
 ### 2. 実行スケジュール設定（cron）
