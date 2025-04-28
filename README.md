@@ -11,7 +11,7 @@ AWSの障害発生を自動検知し、
 - AWS公式ステータスRSSを1時間ごとにチェック
 - 新たな障害が検出されれば即時通知
 - 障害がない場合も正常通知を送信
-- 通知先：メール（SMTP） / Slack / LINE Notify（すべて任意）
+- 通知先：メール（SMTP） / Slack（任意）
 - GitHub Actions / ローカル実行どちらにも対応
 - 通知済みエントリをJSONで管理し、重複防止
 
@@ -56,7 +56,7 @@ schedule:
 現在 2025/04/22 13:00 時点で、AWSステータスに新たな障害は報告されていません。
 引き続き監視を継続します。
 
-SlackやLINEでは以下のように通知されます：
+Slackやでは以下のように通知されます：
 【AWS稼働確認】異常は検出されませんでした（2025/04/22 13:00 時点）
 現在AWSステータスに新たな障害は報告されていません。
 
@@ -72,7 +72,7 @@ SlackやLINEでは以下のように通知されます：
 Between 1:02 PM and 2:45 PM PDT, elevated error rates for EC2 and ELB were observed.
 詳細: https://status.aws.amazon.com/
 
-SlackやLINEでは以下のように通知されます：
+Slackやでは以下のように通知されます：
 【AWS障害検知】[RESOLVED] Connectivity Issues – US-WEST-2 Region
 Between 1:02 PM and 2:45 PM PDT, elevated error rates for EC2 and ELB were observed.
 詳細: https://status.aws.amazon.com/
@@ -115,8 +115,8 @@ Pull Request / Issue 大歓迎です！
 
 ## 🔥 特記事項
 
-- メール通知（SMTP設定）は必須ですが、SlackとLINEは任意設定です。
-- SlackやLINEの設定が未登録の場合は自動スキップされます。
+- メール通知（SMTP設定）は必須ですが、Slackとは任意設定です。
+- Slackやの設定が未登録の場合は自動スキップされます。
 - `.env.example` を参考に `.env` ファイルを作成してください。
 
 
