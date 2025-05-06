@@ -15,22 +15,25 @@ JST = pytz.timezone("Asia/Tokyo")
 # === 環境変数 ===
 SMTP_USER = os.getenv("SMTP_USER")
 SMTP_PASS = os.getenv("SMTP_PASS")
-MAIL_TO   = os.getenv("MAIL_TO")
+MAIL_TO   = os.getenv("MAIL_TO")  # カンマ区切りで複数可（Bcc送信）
 SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 LINE_NOTIFY_TOKEN = os.getenv("LINE_NOTIFY_TOKEN")
 
-# === メール通知 ===
+# === メール通知（Bcc対応） ===
 def send_email(subject, body):
+    bcc_list = [addr.strip() for addr in MAIL_TO.split(",") if addr.strip()]
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = SMTP_USER
-    msg["To"] = MAIL_TO
+    msg["To"] = SMTP_USER  # 表示上のTo（実際の宛先はbcc）
+    msg["Bcc"] = ", ".join(bcc_list)
     msg.set_content(body)
 
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
         server.login(SMTP_USER, SMTP_PASS)
         server.send_message(msg)
+        print("✅ メール送信成功（BCC）")
 
 # === Slack通知 ===
 def send_slack(message):
@@ -61,7 +64,6 @@ def notify(subject, body):
     try:
         if SMTP_USER and SMTP_PASS and MAIL_TO:
             send_email(subject, body)
-            print("✅ メール送信成功")
     except Exception as e:
         print(f"❌ メール通知エラー: {e}")
 
