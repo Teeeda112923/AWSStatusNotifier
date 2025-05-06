@@ -1,5 +1,4 @@
-# 📡 AWS Status Notifier
-
+# 📡 AWS Status Notifier　Ver1.1
 AWSの障害発生を自動検知し、  
 **メール・Slack** へ通知する軽量モニタリングツールです。  
 障害がない場合も「正常確認通知」を定期送信できます。
